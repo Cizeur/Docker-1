@@ -1,0 +1,3 @@
+#!/bin/bash
+#USE SOURCE TO RUN IT
+eval $(docker-machine env Char)

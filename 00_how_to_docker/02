@@ -1,0 +1,3 @@
+#!/bin/bash
+docker-machine ip Char
+#docker-machine ls to get the name
