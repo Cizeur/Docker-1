@@ -10,5 +10,5 @@ RUN apk add vim
 RUN apk add bash
 WORKDIR /home
 #CMD vim
-#COUNTRARY TO CMD will use following command as arg
+#COUNTRARY TO CMD will ignore following cmd
 ENTRYPOINT [ "vim" ]
