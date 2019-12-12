@@ -1,5 +1,4 @@
-#docker run --name test  --tty --interactive  debian
+#docker run --name test  --rm -it  debian
 apt-get update -y
 apt-get upgrade -y
 apt-get install -y build-essential git
-#docker exec -it test /bin/bash

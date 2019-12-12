@@ -1,2 +1,1 @@
-#!/bin/bash
 docker run --name test --rm  --tty --interactive   alpine

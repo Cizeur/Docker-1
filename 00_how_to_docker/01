@@ -1,3 +1,2 @@
-#!/bin/bash
 docker-machine create --driver virtualbox Char
 #export MACHINE_STORAGE_PATH="/tmp" for machine location

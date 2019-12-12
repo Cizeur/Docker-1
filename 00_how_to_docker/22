@@ -1,0 +1,6 @@
+leader="Char"
+worker="Aiur"
+leader_ip=$(docker-machine ip $leader)
+worker_token=$(docker swarm join-token worker -q)
+eval $(docker-machine env $worker)
+docker swarm join --token $worker_token $leader_ip:2377

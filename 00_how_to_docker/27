@@ -1,0 +1,3 @@
+task=1
+task=$(docker service ps engineering-bay --quiet --filter "name=engineering-bay.$task" --filter "desired-state=running")
+docker service logs -f $task   
