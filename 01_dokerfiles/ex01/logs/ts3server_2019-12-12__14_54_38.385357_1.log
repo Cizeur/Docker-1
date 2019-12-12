@@ -1,0 +1,7 @@
+2019-12-12 14:54:39.726390|INFO    |VirtualServer |1  |listening on 0.0.0.0:9987, [::]:9987
+2019-12-12 14:54:39.728160|WARNING |VirtualServer |1  |--------------------------------------------------------
+2019-12-12 14:54:39.728421|WARNING |VirtualServer |1  |ServerAdmin privilege key created, please use the line below
+2019-12-12 14:54:39.728614|WARNING |VirtualServer |1  |token=Ho+pR3hXs3NR1UTJRTEiSRtJarWNMKF6aYRr9HeT
+2019-12-12 14:54:39.728802|WARNING |VirtualServer |1  |--------------------------------------------------------
+2019-12-12 14:55:44.721649|INFO    |VirtualServer |1  |client (id:2) was added to servergroup 'Server Admin'(id:6) by client 'server'(id:0)
+2019-12-12 14:55:44.723308|INFO    |VirtualServer |1  |client 'test'(id:2) used privilege key 'Ho+pR3hXs3NR1UTJRTEiSRtJarWNMKF6aYRr9HeT' and was added to servergroup 'Server Admin'(id:6)

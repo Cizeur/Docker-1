@@ -1,5 +1,5 @@
 #RUN WITH 
-#docker build -t ex00 ex00
+#docker build -t vim ex00
 #docker run --rm --tty --interactive -v $(pwd)/:/home ex00
 
 FROM alpine:latest
