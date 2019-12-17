@@ -11,14 +11,13 @@ FROM debian:stretch-slim
     WORKDIR /tmp
     RUN curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
     RUN apt-get install -y gitlab-ce
-    RUN apt-get install -y certbot
-    RUN echo << END
+    #RUN apt-get install -y certbot
     EXPOSE 22 80 443
+
+    #nginx['custom_gitlab_server_config'] = \"location ^~ /.well-known { root /var/www/letsencrypt; }\"\n\
     RUN printf "\n\
-nginx['custom_gitlab_server_config'] = \"location ^~ /.well-known { root /var/www/letsencrypt; }\"\n\
 letsencrypt['enable'] = true                      # GitLab 10.5 and 10.6 require this option\n\
-external_url \"https://gitlab.example.com\"         # Must use https protocol\n\
-letsencrypt['contact_emails'] = ['foo@email.com'] # Optional" >> /etc/gitlab/gitlab.rb
+external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
     #CMD ["/bin/bash"]
     ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) \
             && gitlab-ctl reconfigure \
