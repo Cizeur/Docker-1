@@ -8,6 +8,7 @@ LABEL Author="cgiron"
 ENV TS_FOLDER="/opt/teamspeak/"
 ENV TS3SERVER_LICENSE=accept
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install --upgrade -y wget tar bzip2
