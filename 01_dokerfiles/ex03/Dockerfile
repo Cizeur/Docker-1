@@ -15,10 +15,12 @@ FROM debian:stretch-slim
     EXPOSE 22 80 443
 
     #nginx['custom_gitlab_server_config'] = \"location ^~ /.well-known { root /var/www/letsencrypt; }\"\n\
-    RUN printf "\n\
-letsencrypt['enable'] = true                      # GitLab 10.5 and 10.6 require this option\n\
-external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
+#    RUN printf "\n\
+#letsencrypt['enable'] = true                      # GitLab 10.5 and 10.6 require this option\n\
+#external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
     #CMD ["/bin/bash"]
-    ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) \
+    ENTRYPOINT service ssh start \
+            && ( /opt/gitlab/embedded/bin/runsvdir-start & ) \
             && gitlab-ctl reconfigure \
-            && sleep infinity
+            && gitlab-ctl tail
+            #&& sleep infinity
