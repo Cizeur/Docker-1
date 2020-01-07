@@ -30,6 +30,8 @@ FROM debian:stretch-slim
     RUN printf "\n\
     nginx['ssl_certificate'] = \"/etc/gitlab/ssl/gitlab.crt\"\n\
     nginx['ssl_certificate_key'] = \"/etc/gitlab/ssl/gitlab.key\"\n\
+    nginx['redirect_http_to_https'] = true\n\
+    gitlab_rails['gitlab_shell_ssh_port'] = 4222 \n\
     external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
     #CMD ["/bin/bash"]
 
