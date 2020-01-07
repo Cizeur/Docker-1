@@ -28,9 +28,9 @@ FROM debian:stretch-slim
     #nginx['custom_gitlab_server_config'] = \"location ^~ /.well-known { root /var/www/letsencrypt; }\"\n\
     #letsencrypt['enable'] = true                      # GitLab 10.5 and 10.6 require this option\n\
     RUN printf "\n\
-    nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.crt"\n\
-    nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.key"\n\
-    external_url \"http://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
+    nginx['ssl_certificate'] = \"/etc/gitlab/ssl/gitlab.crt\"\n\
+    nginx['ssl_certificate_key'] = \"/etc/gitlab/ssl/gitlab.key\"\n\
+    external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
     #CMD ["/bin/bash"]
 
     EXPOSE 22 80 44
