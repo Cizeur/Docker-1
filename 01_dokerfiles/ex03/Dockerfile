@@ -1,4 +1,12 @@
+
+
 FROM debian:stretch-slim
+
+    ###########################################
+    ## GIVE MACHINE IP FOR HTTPS REDIRECTION ##
+    ###########################################
+    ARG MACHINE_IP="192.168.99.128"
+
 
     ## AVOID OPTIONAL INSTALLATIONS STOPS
     ENV DEBIAN_FRONTEND=noninteractive
@@ -25,6 +33,9 @@ FROM debian:stretch-slim
     RUN mkdir -p /etc/gitlab/ssl
     RUN mv gitlab.crt gitlab.key /etc/gitlab/ssl
 
+    ##DISABLE SSH PASSWORD AUTHENTICATION
+    RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+
     #nginx['custom_gitlab_server_config'] = \"location ^~ /.well-known { root /var/www/letsencrypt; }\"\n\
     #letsencrypt['enable'] = true                      # GitLab 10.5 and 10.6 require this option\n\
     RUN printf "\n\
@@ -32,7 +43,7 @@ FROM debian:stretch-slim
     nginx['ssl_certificate_key'] = \"/etc/gitlab/ssl/gitlab.key\"\n\
     nginx['redirect_http_to_https'] = true\n\
     gitlab_rails['gitlab_shell_ssh_port'] = 4222 \n\
-    external_url \"https://127.0.0.1\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
+    external_url \"https://${MACHINE_IP}\"         # Must use https protocol " >> /etc/gitlab/gitlab.rb
     #CMD ["/bin/bash"]
 
     EXPOSE 22 80 44
