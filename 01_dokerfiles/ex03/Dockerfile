@@ -52,3 +52,4 @@ FROM debian:stretch-slim
             && gitlab-ctl reconfigure \
             && gitlab-ctl tail
             #&& sleep infinity
+# [git -c http.sslVerify=false clone ] before command to avoid ssl rejection
