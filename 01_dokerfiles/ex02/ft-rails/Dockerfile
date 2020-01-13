@@ -28,4 +28,8 @@ ONBUILD RUN rake db:seed
 
 
 #BUILD COMMAND
-#docker build -t ft-rails:on-build .
+#docker build -t ft-rails .
+#to create an app
+#docker run -it -v $(pwd):/home ft-rails:on-build  /bin/bash
+#Tag for next image
+#docker tag ft-rails ft-rails:on-build
