@@ -1,6 +1,6 @@
 #RUN WITH 
 #docker build -t vim ex00
-#docker run --rm --tty --interactive -v $(pwd)/:/home ex00
+#docker run --rm --tty --interactive -v $(pwd)/:/home .
 
 FROM alpine:latest
 LABEL Author="cgiron"
