@@ -1,6 +1,6 @@
 #RUN WITH 
-#docker build -t vim ex00
-#docker run --rm --tty --interactive -v $(pwd)/:/home .
+#docker build -t vim_image .
+#docker run --rm --tty --interactive -v $(pwd)/:/home vim_image
 
 FROM alpine:latest
 LABEL Author="cgiron"
