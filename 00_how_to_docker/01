@@ -1,2 +1,2 @@
-docker-machine create --driver virtualbox Char
+docker-machine create --driver virtualbox --virtualbox-cpu-count "2" --virtualbox-memory "4096" Char
 #export MACHINE_STORAGE_PATH="/tmp" for machine location
