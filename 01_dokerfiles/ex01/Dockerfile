@@ -1,6 +1,5 @@
 #RUN WITH 
-#docker build -t byotss ex01
-#docker run --rm --tty --interactive byotss
+#docker build -t byotss .
 FROM debian:latest
 
 LABEL Author="cgiron"
