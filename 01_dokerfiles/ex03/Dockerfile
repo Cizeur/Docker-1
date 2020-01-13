@@ -5,7 +5,7 @@ FROM debian:stretch-slim
     ###########################################
     ## GIVE MACHINE IP FOR HTTPS REDIRECTION ##
     ###########################################
-    ARG MACHINE_IP="192.168.99.128"
+    ARG MACHINE_IP="192.168.99.136"
 
 
     ## AVOID OPTIONAL INSTALLATIONS STOPS
@@ -52,4 +52,8 @@ FROM debian:stretch-slim
             && gitlab-ctl reconfigure \
             && gitlab-ctl tail
             #&& sleep infinity
+
 # [git -c http.sslVerify=false clone ] before command to avoid ssl rejection
+# or raise memory
+# docker build -t gitlab_image .
+# docker run -p 80:80 -p  4222:22 -p 443:443  --privileged --name we_believe -it --rm gitlab_image
